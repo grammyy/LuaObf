@@ -1,0 +1,47 @@
+obfuscator - lua 5.1
+    Single or multi threaded
+    encrytion methods
+        Byte replace - Replaces all characters with their byte counterpart
+            compressed, simply removes all unnesscary items and formatting to reduce it to its simplest file
+            custom, change the byte seperators or get rid of them entirely
+            custom function, change the function used to change char to byte
+            Bundled, custom range to set how compressed the bytes are to allow for no seperators. Create a custom list of characters to encrypted bytes
+        Bytecode
+    encrytion bloat range (change how many cycles are ran)
+    custom encrytion template
+    sequence encrytion (change encrytion method midway)
+    control flow scrambling
+    mutation
+    virtualization
+    remove comments
+    rename all variables
+    compression
+    Tamper detection 
+        Length
+        SHA256 hash
+    precompile
+    target file obfuscation range
+Luraph deob process
+    JAVA - https://github.com/PhoenixZeng/LuraphDeobfuscator
+    * Lex and parse input Lua file to generate parse tree
+    * Convert parse tree into abstract syntax treee
+    * Optimize the abstract syntax tree
+    * Rename variables, populate symbol table.
+    * Detect and rename variables and function names into names such as get_float64, etc
+    * Detect VM handlers
+    * Find all encryption information in Lua VM
+    * Load and decrypt bytecode using above information.
+    * Decrypt and populate chunks by symbolically executing Lua code (constants, instructions, prototypes).
+    * Process VM handler redirection and decryption (bytecode redirection).
+    * Remove antidecompiler tricks from optimized bytecode
+    * Remove junk code and further optimize bytecode using various techniques and algorithms.
+    * Generate luac file
+    
+LUA - https://github.com/efrederickson/XFuscator
+C# - https://github.com/ferib/LuaToolkit
+PY - https://github.com/jkusner/LuaObfuscator
+LUA - https://github.com/levno-710/Prometheus
+LUA - https://github.com/smart-node/lvm-protect
+LUA - https://github.com/gonzalezjo/lua-obfuscation-research
+LUA & C# - https://github.com/Trollicus/ironbrew-2
+LUA - https://github.com/amazman/ironbrew2/
