@@ -14,9 +14,10 @@ for i,a in pairs(arg) do
             app.split=arg[i+1]end,
         ["-help"]=function()
             print("-byte     |-b |  Converts scripts to their binary codes, separated -split next argument")
-            print("-split    |-s |  Configures the seperating character for -b")
-            print("-range    |-rr|  Configures the minimal byte code for -b")
-            print("-replace  |-re|  Replaces the default function for -b")
+            print("-long     |-l |  Overrides -split for -byte, best for performance when running obfuscated files")
+            print("-split    |-s |  Configures the seperating character for -byte")
+            print("-range    |-rr|  Configures the minimal byte code for -byte")
+            print("-replace  |-re|  Replaces the default function for -byte")
             print("-graphic  |-gc|  Sets the Obfuscator into graphical mode.")
             print("-popout   |-p |  Opens the output in a seperate EXE process, doesn't affect general process.")
             print("-run      |-r |  Runs a obfuscated file, supported on -byte.")
