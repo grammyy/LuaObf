@@ -9,6 +9,8 @@
   * Supports: **Lua**
   * Optional: **-long/-split/-range/-replace/-keep**
 * Minifier; Compresses scripts into their simplest form.
+
+  (Final figure incomplete)
   * Supports: **Lua**
   * Optional: **-long/-split/-range/-replace/-keep**
 ## Command table
