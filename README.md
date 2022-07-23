@@ -2,7 +2,7 @@
 ## En/De => Cryption, Compression
 * Bytecode; Converts characters into their byte counterpart.
 
-  [Bytecode; -split ""]: https://aerodata.netlify.app/packaging/bytecode.png
+  ![Bytecode using -split ''](https://aerodata.netlify.app/packaging/bytecode.png)
 * Minifier; Compresses scripts into their simplest form.
 > Supported arguments: -keep
 ## Command table
