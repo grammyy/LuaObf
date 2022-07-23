@@ -11,8 +11,21 @@ _G.bytecode=function(f)
     if switch("-run",arg)then
     else r=(io.open(app.path.."\\"..f,"rb"):read "*a"):gsub(".",function(b)return app.split..b:byte()end)end
     io.open(app.output.."\\"..f,"w+"):write(r) print(r)end
+_G.help=function()
+    print("-byte     |-b |  Converts scripts to their binary codes, -split supported.")
+    print("-long     |-l |  Overrides -split for -byte, best for performance when running obfuscated files.")
+    print("-split    |-s |  Configures the seperating character for -byte")
+    print("-range    |-rr|  Configures the minimal byte code for -byte")
+    print("-replace  |-re|  Replaces the default function for -byte")
+    print("-graphic  |-g |  Sets the Obfuscator into graphical mode.")
+    print("-popout   |-p |  Opens the output in a seperate EXE process, doesn't affect general process.")
+    print("-run      |-r |  Runs a obfuscated file, supported on -byte.")
+    print("-min      |-m |  Compresses the target files into their simplest form.")
+    print("-keep     |-k |  Modifys arguments to keep certain elements of the file, such as variables.")
+    print("-out      |-o |  Defines the output folder for compiled scripts.")end
 _G.class=function(a)
      end
+if not arg[1] then help()end
 for i,a in pairs(arg) do
     switch(a,{
         ["-byte"]=function()
@@ -22,7 +35,8 @@ for i,a in pairs(arg) do
             else print("ERR 001.  Output file not defined; -out usage required")end end,
             ----if switch("-run",arg) then end
         ["-split"]=function()
-            app.split=arg[i+1] end,
+            if not switch("-long",arg)then
+                app.split=arg[i+1]end end,
         ["-long"]=function()
             app.split=","end, --Add long encasing later
         ["-cls"]=function()
@@ -43,18 +57,6 @@ for i,a in pairs(arg) do
             else end
             print(io.open(arg[i-1],"r"):read("*a"):gsub("%-%-[^\n\r]+", ""):gsub("%-%-",""):gsub("\n",""):gsub("%s+"," "))end, --extremely simple minifier, just enough to actually work <3
         ["-help"]=function() --Seperate into categories and function later
-            print("-byte     |-b |  Converts scripts to their binary codes, separated -split next argument")
-            print("-long     |-l |  Overrides -split for -byte, best for performance when running obfuscated files")
-            print("-split    |-s |  Configures the seperating character for -byte")
-            print("-range    |-rr|  Configures the minimal byte code for -byte")
-            print("-replace  |-re|  Replaces the default function for -byte")
-            print("-graphic  |-g |  Sets the Obfuscator into graphical mode.")
-            print("-popout   |-p |  Opens the output in a seperate EXE process, doesn't affect general process.")
-            print("-run      |-r |  Runs a obfuscated file, supported on -byte.")
-            print("-min      |-m |  Compresses the target files into their simplest form.")
-            print("-keep     |-k |  Modifys arguments to keep certain elements of the file, such as variables.")
-            print("-out      |-o |  Defines the output folder for compiled scripts.")
-          --print("-dog      |-d |  dog") dog
-            end})end --print("ERR 001.       Output file not defined; -out usage required")
+            help()end})end  --print("-dog      |-d |  dog") dog--print("ERR 001.       Output file not defined; -out usage required")
 --pint((io.open(arg[1],"rb"):read "*a"):gsub(".",function(b)return"\\"..b:byte()end))
 --pint(io.open(arg[1],"rb"):read "*a")
