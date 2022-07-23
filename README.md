@@ -1,4 +1,7 @@
 ### Functionality minor, this is in the stage of inital coding. Many features, if not all will NOT work. Do not attempt to use this as of now.
+
+### ***Eventually, multiple language support will be available though the use of plugins, please await; this will be far out from inital release***
+---
 ## En/De => Cryption, Compression
 * Bytecode; Converts characters into their byte counterpart.
 
