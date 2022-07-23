@@ -4,27 +4,25 @@ local app={
     output=""}
 _G.switch=function(p,t)
     if t[p] then return t[p]()
-    else if t["default"]then return t["default"]()end end end
+    else if t["default"]then return t["default"]() else
+    return false end end end
 _G.bytecode=function(f)
     local r
     if switch("-run",arg)then
     else r=(io.open(app.path.."\\"..f,"rb"):read "*a"):gsub(".",function(b)return app.split..b:byte()end)end
     io.open(app.output.."\\"..f,"w+"):write(r) print(r)end
 _G.class=function(a)
-    local p=string.gmatch(a, '([^,]+)')
-    for g in p do
-        print(g) end end
+     end
 for i,a in pairs(arg) do
     switch(a,{
         ["-byte"]=function()
             if app.output~="" then
-            for f in string.gmatch(arg[i-1],'([^,]+)')do
-                bytecode(f)end
+                for f in string.gmatch(arg[i-1],'([^,]+)')do
+                    bytecode(f)end
             else print("ERR 001.  Output file not defined; -out usage required")end end,
             ----if switch("-run",arg) then end
         ["-split"]=function()
-            if not switch("-long",arg)then
-                app.split=arg[i+1]end end,
+            app.split=arg[i+1] end,
         ["-long"]=function()
             app.split=","end, --Add long encasing later
         ["-cls"]=function()
@@ -34,6 +32,15 @@ for i,a in pairs(arg) do
         ["-out"]=function()
             app.output=arg[i+1]end,
         ["-min"]=function()
+            local struct,vars,func
+            if switch("-keep",arg)then
+                for f in string.gmatch(arg[i+1],'([^,]+)')do
+                    switch(f,{
+                        ["struct"]=function()struct=1 end,
+                        ["vars"]=function()vars=1 end,
+                        ["func"]=function()func=1 end})
+                end
+            else end
             print(io.open(arg[i-1],"r"):read("*a"):gsub("%-%-[^\n\r]+", ""):gsub("%-%-",""):gsub("\n",""):gsub("%s+"," "))end, --extremely simple minifier, just enough to actually work <3
         ["-help"]=function() --Seperate into categories and function later
             print("-byte     |-b |  Converts scripts to their binary codes, separated -split next argument")
