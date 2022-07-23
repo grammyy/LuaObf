@@ -6,7 +6,8 @@
   * Supports: **Lua**
   * Optional: **-long/-split/-range/-replace/-keep**
 * Minifier; Compresses scripts into their simplest form.
-> Supported arguments: -keep
+  * Supports: **Lua**
+  * Optional: **-long/-split/-range/-replace/-keep**
 ## Command table
 |Arguments|Parameters|Usage|Desc|
 | -- | --  | - | -- |
