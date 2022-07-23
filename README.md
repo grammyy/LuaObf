@@ -3,6 +3,8 @@
 * Bytecode; Converts characters into their byte counterpart.
 
   ![Bytecode using -split ''](https://aerodata.netlify.app/packaging/bytecode.png)
+  * Supports: **Lua**
+  * Optional: **-long/-split/-range/-replace/-keep**
 * Minifier; Compresses scripts into their simplest form.
 > Supported arguments: -keep
 ## Command table
